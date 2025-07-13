@@ -7,7 +7,7 @@ install_dependencies:
 	python -m poetry install --no-interaction
 
 run_tests:
-	python -m pytest -vvx
+	poetry run pytest -vvx
 
 run_tests_with_coverage:
-	python -m pytest -vvx --cov=. --cov-report='xml:coverage.xml'
+	poetry run pytest -vvx --cov=. --cov-report='xml:coverage.xml'
