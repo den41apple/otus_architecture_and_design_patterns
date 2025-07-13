@@ -1,5 +1,3 @@
 ```shell
-python -m pip install --upgrade pip && \
-python -m pip install -r requirements.txt && \
-python -m poetry install
+make install_dependencies
 ```

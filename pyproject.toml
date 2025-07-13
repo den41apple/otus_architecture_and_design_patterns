@@ -1,18 +1,18 @@
-[project]
+[tool.poetry]
 name = "otus_project"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "Сильных Андрей Сергеевич",email = "den41_apple@bk.ru"}
-]
+authors = ["Сильных Андрей Сергеевич <den41_apple@bk.ru>"]
 readme = "README.md"
-requires-python = ">=3.13"
-
-[tool.poetry]
+packages = [{ include = "otus_project" }]
 package-mode = false
 
+
 [tool.poetry.dependencies]
+python = "3.12.*"
 pytest = "8.4.1"
+pytest-cov = "6.2.1"
+coveralls = "4.0.1"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
