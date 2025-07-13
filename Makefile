@@ -8,6 +8,3 @@ install_dependencies:
 
 run_tests:
 	poetry run pytest -vvx
-
-run_tests_with_coverage:
-	poetry run pytest -vvx --cov=. --cov-report='xml:coverage.xml'
