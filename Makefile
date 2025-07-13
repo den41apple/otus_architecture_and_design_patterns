@@ -2,9 +2,9 @@
 
 install_dependencies:
 	python -m pip install --upgrade pip && \
-	python -m pip install -r requirements.txt && \
+	python -m pip install poetry==2.1.3 && \
 	poetry config virtualenvs.create false --local && \
-	python -m poetry install
+	python -m poetry install --no-interaction
 
 run_tests:
 	python -m pytest -vvx
