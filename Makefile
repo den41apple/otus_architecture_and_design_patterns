@@ -8,3 +8,6 @@ install_dependencies:
 
 run_tests:
 	poetry run pytest -vvx
+
+coverage:
+	PYTHONPATH=$(pwd) pytest --cov=homeworks --cov-report=term-missing --cov-report=html tests
