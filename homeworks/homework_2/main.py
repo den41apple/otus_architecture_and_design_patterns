@@ -5,18 +5,18 @@ from homeworks.homework_2.uobject import UObject
 
 
 def print_ship_state(ship: UObject):
-    location: Point = ship.get_property('location')
-    angle: Angle = ship.get_property('angle')
-    velocity: float = ship.get_property('velocity')
+    location: Point = ship.get_property("location")
+    angle: Angle = ship.get_property("angle")
+    velocity: float = ship.get_property("velocity")
     print(f"Location: {location}, Angle: {angle}, Velocity: {velocity}")
 
 
 def main():
     # Создаем космический корабль
     ship = UObject()
-    ship.set_property(property_='location', value=Point(12, 5))
-    ship.set_property(property_='angle', value=Angle(45))
-    ship.set_property(property_='velocity', value=10)  # Модуль скорости
+    ship.set_property(property_="location", value=Point(12, 5))
+    ship.set_property(property_="angle", value=Angle(45))
+    ship.set_property(property_="velocity", value=10)  # Модуль скорости
 
     print("== INITIAL STATE ==")
     print_ship_state(ship)

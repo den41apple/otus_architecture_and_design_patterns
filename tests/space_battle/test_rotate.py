@@ -11,11 +11,11 @@ def test_rotate_success():
     Проверяет, что поворот объекта вокруг оси работает корректно: к текущему углу прибавляется дельта
     """
     ship = UObject()
-    ship.set_property('angle', Angle(45))
+    ship.set_property("angle", Angle(45))
     adapter = RotatableObjectAdapter(ship)
     rotate = Rotate(adapter)
     rotate.execute(Angle(15))
-    assert ship.get_property('angle') == 60
+    assert ship.get_property("angle") == 60
 
 
 def test_rotate_no_angle():

@@ -10,14 +10,14 @@ class MovingObjectAdapter(MovingObject):
         self.uobj = u_obj
 
     def get_location(self) -> Point | None:
-        pt = self.uobj.get_property('location')
+        pt = self.uobj.get_property("location")
         if pt is not None:
             return Point(x=int(pt.x), y=int(pt.y))
         return pt
 
     def get_velocity(self) -> Vector | None:
-        angle: Angle = self.uobj.get_property('angle')
-        velocity: float = self.uobj.get_property('velocity')
+        angle: Angle = self.uobj.get_property("angle")
+        velocity: float = self.uobj.get_property("velocity")
         if angle is not None and velocity is not None:
             radian = angle.radians()
             vx = int(velocity * math.cos(radian))
@@ -26,7 +26,9 @@ class MovingObjectAdapter(MovingObject):
         return None
 
     def set_location(self, new_point: Point):
-        self.uobj.set_property(property_='location', value=Point(x=int(new_point.x), y=int(new_point.y)))
+        self.uobj.set_property(
+            property_="location", value=Point(x=int(new_point.x), y=int(new_point.y))
+        )
 
 
 class RotatableObjectAdapter(RotatableObject):
@@ -34,7 +36,7 @@ class RotatableObjectAdapter(RotatableObject):
         self.uobj = uobj
 
     def get_angle(self) -> Angle:
-        return self.uobj.get_property('angle')
+        return self.uobj.get_property("angle")
 
     def set_angle(self, new_angle: Angle) -> None:
-        self.uobj.set_property(property_='angle', value=new_angle)
+        self.uobj.set_property(property_="angle", value=new_angle)

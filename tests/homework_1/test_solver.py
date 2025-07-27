@@ -61,11 +61,14 @@ def test_discriminant_almost_zero():
     assert abs(roots[0] + 1) < 1e-6
 
 
-@pytest.mark.parametrize("a, b, c", [
-    (math.nan, 1, 1),
-    (1, math.inf, 1),
-    (1, 1, -math.inf),
-])
+@pytest.mark.parametrize(
+    "a, b, c",
+    [
+        (math.nan, 1, 1),
+        (1, math.inf, 1),
+        (1, 1, -math.inf),
+    ],
+)
 def test_non_finite_coeffs(a: float | int, b: float | int, c: float | int):
     """
     Посмотреть какие еще значения могут принимать числа типа double,
