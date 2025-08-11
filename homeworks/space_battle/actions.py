@@ -1,9 +1,9 @@
-from homeworks.space_battle.interfaces import MovingObject, RotatableObject
+from homeworks.space_battle.interfaces import MovingObjectInterface, RotatableObjectInterface
 from homeworks.space_battle.models import Point, Vector, Angle
 
 
 class Move:
-    def __init__(self, moving_object: MovingObject):
+    def __init__(self, moving_object: MovingObjectInterface):
         self._moving_object = moving_object
 
     def execute(self) -> None:
@@ -18,7 +18,7 @@ class Move:
 
 
 class Rotate:
-    def __init__(self, rotatable_object: RotatableObject):
+    def __init__(self, rotatable_object: RotatableObjectInterface):
         self._rotatable_object = rotatable_object
 
     def execute(self, delta_angle: Angle) -> None:

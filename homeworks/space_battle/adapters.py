@@ -1,11 +1,11 @@
 import math
 
-from homeworks.space_battle.interfaces import MovingObject, RotatableObject
+from homeworks.space_battle.interfaces import MovingObjectInterface, RotatableObjectInterface
 from homeworks.space_battle.models import Point, Vector, Angle
 from homeworks.space_battle.uobject import UObject
 
 
-class MovingObjectAdapter(MovingObject):
+class MovingObjectAdapter(MovingObjectInterface):
     def __init__(self, u_obj: UObject):
         self.uobj = u_obj
 
@@ -31,7 +31,7 @@ class MovingObjectAdapter(MovingObject):
         )
 
 
-class RotatableObjectAdapter(RotatableObject):
+class RotatableObjectAdapter(RotatableObjectInterface):
     def __init__(self, uobj: UObject):
         self.uobj = uobj
 
