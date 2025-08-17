@@ -9,12 +9,12 @@ uv_sync:
 	uv sync --active --dev --all-extras
 
 linters_check:
-	ruff check .
 	ruff format --check .
+	ruff check .
 
 linters:
-	ruff check . --fix
 	ruff format .
+	ruff check . --fix
 
 run_tests:
 	uv run pytest -vvx
