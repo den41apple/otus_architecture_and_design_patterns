@@ -1,5 +1,5 @@
 from homeworks.space_battle.interfaces import MovingObjectInterface, RotatableObjectInterface
-from homeworks.space_battle.models import Point, Vector, Angle
+from homeworks.space_battle.models import Angle, Point, Vector
 
 
 class Move:

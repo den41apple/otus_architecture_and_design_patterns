@@ -1,4 +1,5 @@
 import math
+
 import pytest
 
 from homeworks.homework_1.solver import solve
@@ -43,7 +44,7 @@ def test_zero_a_raises():
             solve(0, 1, 1)
         except ValueError as err:
             assert err.args[0] == "'a' coefficient must not be zero"
-            raise err
+            raise
 
 
 def test_discriminant_almost_zero():
@@ -62,14 +63,14 @@ def test_discriminant_almost_zero():
 
 
 @pytest.mark.parametrize(
-    "a, b, c",
+    ("a", "b", "c"),
     [
         (math.nan, 1, 1),
         (1, math.inf, 1),
         (1, 1, -math.inf),
     ],
 )
-def test_non_finite_coeffs(a: float | int, b: float | int, c: float | int):
+def test_non_finite_coeffs(a: float, b: float, c: float):
     """
     Посмотреть какие еще значения могут принимать числа типа double,
     кроме числовых и написать тест с их использованием на все коэффициенты.
@@ -80,4 +81,4 @@ def test_non_finite_coeffs(a: float | int, b: float | int, c: float | int):
             solve(a, b, c)
         except ValueError as err:
             assert err.args[0] == "All coefficients must be finite numbers"
-            raise err
+            raise

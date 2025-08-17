@@ -1,7 +1,7 @@
 import math
 
 from homeworks.space_battle.interfaces import MovingObjectInterface, RotatableObjectInterface
-from homeworks.space_battle.models import Point, Vector, Angle
+from homeworks.space_battle.models import Angle, Point, Vector
 from homeworks.space_battle.uobject import UObject
 
 
@@ -27,7 +27,8 @@ class MovingObjectAdapter(MovingObjectInterface):
 
     def set_location(self, new_point: Point):
         self.uobj.set_property(
-            property_="location", value=Point(x=int(new_point.x), y=int(new_point.y))
+            property_="location",
+            value=Point(x=int(new_point.x), y=int(new_point.y)),
         )
 
 

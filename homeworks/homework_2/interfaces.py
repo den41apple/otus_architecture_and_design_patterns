@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from homeworks.homework_2.models import Point, Vector, Angle
+from homeworks.homework_2.models import Angle, Point, Vector
 
 
 class MovingObject(ABC):

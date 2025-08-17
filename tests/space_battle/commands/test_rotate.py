@@ -8,7 +8,8 @@ from homeworks.space_battle.uobject import UObject
 
 def test_rotate_success():
     """
-    Проверяет, что поворот объекта вокруг оси работает корректно: к текущему углу прибавляется дельта
+    Проверяет, что поворот объекта вокруг оси работает корректно:
+    к текущему углу прибавляется дельта
     """
     ship = UObject()
     ship.set_property("angle", Angle(45))

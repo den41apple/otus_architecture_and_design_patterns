@@ -1,6 +1,6 @@
 from homeworks.homework_2.actions import Move, Rotate
 from homeworks.homework_2.adapters import MovingObjectAdapter, RotatableObjectAdapter
-from homeworks.homework_2.models import Point, Angle
+from homeworks.homework_2.models import Angle, Point
 from homeworks.homework_2.uobject import UObject
 
 

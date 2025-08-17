@@ -1,19 +1,26 @@
 from queue import Queue
 
-from homeworks.space_battle.commands import LogCommand, RetryIfExceptionCommand, SecondRetryIfExceptionCommand
-from homeworks.space_battle.interfaces import (CommandInterface, ExceptionHandlerInterface, ExceptionsStorageInterface,
-                                               )
+from homeworks.space_battle.commands import (
+    LogCommand,
+    RetryIfExceptionCommand,
+    SecondRetryIfExceptionCommand,
+)
+from homeworks.space_battle.interfaces import (
+    CommandInterface,
+    ExceptionHandlerInterface,
+    ExceptionsStorageInterface,
+)
 
 
 class ExceptionsStorage(ExceptionsStorageInterface):
-
     @classmethod
     def resolve(cls, command: CommandInterface, exc: Exception) -> ExceptionHandlerInterface | None:
         return cls._storage.get(command, {}).get(exc)
 
     @classmethod
-    def register(cls, command: CommandInterface, exc: Exception,
-                 handler: ExceptionHandlerInterface) -> CommandInterface:
+    def register(
+            cls, command: CommandInterface, exc: Exception, handler: ExceptionHandlerInterface
+    ) -> CommandInterface:
         if command not in cls._storage:
             cls._storage[command] = {}
         cls._storage[command][exc] = handler
@@ -38,7 +45,9 @@ class RetryExceptionHandler(ExceptionHandlerInterface):
         super().__init__(*args, **kwargs)
         self._queue = queue
 
-    def handle(self, exc: Exception | type[Exception], command: CommandInterface) -> CommandInterface:
+    def handle(
+            self, exc: Exception | type[Exception], command: CommandInterface
+    ) -> CommandInterface:
         pass
 
 
@@ -48,7 +57,7 @@ class RetryIfExceptionHandler(RetryExceptionHandler):
     Команду - повторитель команды, выбросившей исключение
     """
 
-    def handle(self, exc: Exception | type[Exception], command: CommandInterface):
+    def handle(self, exc: Exception | type[Exception], command: CommandInterface):  # noqa: ARG002
         self._queue.put(RetryIfExceptionCommand(command=command))
 
 
@@ -64,7 +73,7 @@ class RetryOnceThenLogExceptionHandler(RetryExceptionHandler):
             # 2) второй  — логируем исходную команду
             self._queue.put(LogCommand(exc=exc, command=command.command))
         else:
-            # 1) gервый — ставим один повтор
+            # 1) Первый — ставим один повтор
             self._queue.put(RetryIfExceptionCommand(command=command))
 
 

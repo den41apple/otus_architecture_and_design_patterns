@@ -1,19 +1,18 @@
-[tool.poetry]
+[project]
 name = "otus_project"
 version = "0.1.0"
 description = ""
-authors = ["Сильных Андрей Сергеевич <den41_apple@bk.ru>"]
 readme = "README.md"
-packages = [{ include = "otus_project" }]
-package-mode = false
+requires-python = ">=3.12,<3.13"
+authors = [{ name = "Сильных Андрей Сергеевич", email = "den41_apple@bk.ru" }]
 
-
-[tool.poetry.dependencies]
-python = "3.12.*"
-pytest = "8.4.1"
-pytest-cov = "6.2.1"
-coveralls = "4.0.1"
-ruff = "0.12.5"
+[tool.uv]
+dev-dependencies = [
+    "pytest==8.4.1",
+    "pytest-cov==6.2.1",
+    "coveralls==4.0.1",
+    "ruff==0.12.5",
+]
 
 [tool.pytest.ini_options]
 minversion = "8.0"
@@ -22,6 +21,41 @@ testpaths = [
 ]
 addopts = "-vvx --cov=homeworks --cov-report='xml:coverage.xml'"
 
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+# Включить все правила
+lint.select = ["ALL"]
+
+# Игнорировать отдельные правила (если мешают)
+lint.ignore = [
+    "D", # игнорировать pydocstyle
+    "ANN", # игнорировать обязательные type hints
+    "EM101",
+    "TRY003",
+    "PLW1641",
+    "BLE001",
+    "T201",
+    "RUF002",
+    "RUF003",
+    "COM812",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = [
+    "S101",
+    "PT011",
+    "PT017",
+    "PT012",
+    "PLR2004",
+    "B017",
+    "TRY002",
+    "ARG001",
+    "SLF001",
+    "PT013",
+    "BLE001",
+    "T201",
+    "RUF002",
+    "RUF003",
+]

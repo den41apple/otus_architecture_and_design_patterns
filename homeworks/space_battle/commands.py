@@ -7,6 +7,7 @@ class Command(CommandInterface):
     что бы не писать каждый раз что нужно вызывать .execute()
     у дочерних объектов
     """
+
     _exception_handler: ExceptionHandlerInterface
 
     def __init__(self, *, command: CommandInterface):

@@ -2,13 +2,14 @@ import pytest
 
 from homeworks.space_battle.actions import Move
 from homeworks.space_battle.adapters import MovingObjectAdapter
-from homeworks.space_battle.models import Point, Angle
+from homeworks.space_battle.models import Angle, Point
 from homeworks.space_battle.uobject import UObject
 
 
 def test_move_success():
     """
-    Проверяет, что для объекта, находящегося в точке (12, 5) и движущегося со скоростью 7 вдоль оси X, движение меняет положение на (19, 5)
+    Проверяет, что для объекта, находящегося в точке (12, 5) и
+    движущегося со скоростью 7 вдоль оси X, движение меняет положение на (19, 5)
     """
     ship = UObject()
     ship.set_property("location", Point(12, 5))
@@ -22,7 +23,8 @@ def test_move_success():
 
 def test_move_no_location():
     """
-    Проверяет, что попытка сдвинуть объект, у которого невозможно прочитать положение в пространстве, приводит к ошибке
+    Проверяет, что попытка сдвинуть объект, у которого невозможно
+    прочитать положение в пространстве, приводит к ошибке
     """
     ship = UObject()
     ship.set_property("angle", Angle(0))
@@ -35,7 +37,8 @@ def test_move_no_location():
 
 def test_move_no_velocity():
     """
-    Проверяет, что попытка сдвинуть объект, у которого невозможно прочитать значение мгновенной скорости, приводит к ошибке
+    Проверяет, что попытка сдвинуть объект, у которого невозможно прочитать
+    значение мгновенной скорости, приводит к ошибке
     """
     ship = UObject()
     ship.set_property("location", Point(1, 1))
@@ -46,9 +49,10 @@ def test_move_no_velocity():
         move.execute()
 
 
-def test_move_set_location_error(monkeypatch):
+def test_move_set_location_error():
     """
-    Проверяет, что попытка сдвинуть объект, у которого невозможно изменить положение в пространстве, приводит к ошибке
+    Проверяет, что попытка сдвинуть объект, у которого невозможно
+    изменить положение в пространстве, приводит к ошибке
     """
     ship = UObject()
     ship.set_property("location", Point(1, 1))

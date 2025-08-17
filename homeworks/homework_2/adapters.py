@@ -1,7 +1,7 @@
 import math
 
 from homeworks.homework_2.interfaces import MovingObject, RotatableObject
-from homeworks.homework_2.models import Point, Vector, Angle
+from homeworks.homework_2.models import Angle, Point, Vector
 from homeworks.homework_2.uobject import UObject
 
 
@@ -27,7 +27,8 @@ class MovingObjectAdapter(MovingObject):
 
     def set_location(self, new_point: Point):
         self.uobj.set_property(
-            property_="location", value=Point(x=int(new_point.x), y=int(new_point.y))
+            property_="location",
+            value=Point(x=int(new_point.x), y=int(new_point.y)),
         )
 
 
