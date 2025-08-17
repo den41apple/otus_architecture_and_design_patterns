@@ -10,10 +10,10 @@ class MovingObjectAdapter(MovingObjectInterface):
         self.uobj = u_obj
 
     def get_location(self) -> Point | None:
-        pt = self.uobj.get_property("location")
-        if pt is not None:
-            return Point(x=int(pt.x), y=int(pt.y))
-        return pt
+        location = self.uobj.get_property("location")
+        if location is not None:
+            return Point(x=int(location.x), y=int(location.y))
+        return location
 
     def get_velocity(self) -> Vector | None:
         angle: Angle = self.uobj.get_property("angle")
