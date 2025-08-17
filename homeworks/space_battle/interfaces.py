@@ -36,7 +36,7 @@ class CommandInterface(ABC):
 class ExceptionHandlerInterface(ABC):
     @abstractmethod
     def handle(
-            self, exc: Exception | type[Exception], command: CommandInterface
+        self, exc: Exception | type[Exception], command: CommandInterface
     ) -> CommandInterface:
         pass
 
@@ -52,6 +52,6 @@ class ExceptionsStorageInterface(ABC):
     @classmethod
     @abstractmethod
     def register(
-            cls, command: CommandInterface, exc: Exception, handler: ExceptionHandlerInterface
+        cls, command: CommandInterface, exc: Exception, handler: ExceptionHandlerInterface
     ) -> CommandInterface:
         pass
