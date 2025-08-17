@@ -17,7 +17,7 @@ linters:
 	ruff format .
 
 run_tests:
-	poetry run pytest -vvx
+	uv run pytest -vvx
 
 coverage:
 	PYTHONPATH=$(pwd) pytest --cov=homeworks --cov-report=term-missing --cov-report=html tests

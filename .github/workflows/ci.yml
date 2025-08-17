@@ -23,11 +23,8 @@ jobs:
       - name: Install dependencies
         run: uv sync --dev --all-extras --frozen
 
-      - name: Check formatting (ruff)
-        run: uv run ruff format --check .
-
       - name: Lint (ruff)
-        run: uv run ruff check .
+        run: uv run make linters_check
 
       - name: Run tests
         run: uv run make run_tests
