@@ -19,7 +19,7 @@ class ExceptionsStorage(ExceptionsStorageInterface):
 
     @classmethod
     def register(
-            cls, command: CommandInterface, exc: Exception, handler: ExceptionHandlerInterface
+        cls, command: CommandInterface, exc: Exception, handler: ExceptionHandlerInterface
     ) -> CommandInterface:
         if command not in cls._storage:
             cls._storage[command] = {}
@@ -46,7 +46,7 @@ class RetryExceptionHandler(ExceptionHandlerInterface):
         self._queue = queue
 
     def handle(
-            self, exc: Exception | type[Exception], command: CommandInterface
+        self, exc: Exception | type[Exception], command: CommandInterface
     ) -> CommandInterface:
         pass
 
