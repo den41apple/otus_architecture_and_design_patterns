@@ -6,7 +6,7 @@ from homeworks.space_battle.commands import (
     RetryIfExceptionCommand,
     SecondRetryIfExceptionCommand,
 )
-from homeworks.space_battle.exceptions import (
+from homeworks.space_battle.handlers import (
     LogExceptionHandler,
     RetryIfExceptionHandler,
     RetryOnceThenLogExceptionHandler,

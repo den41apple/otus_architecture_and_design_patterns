@@ -4,9 +4,7 @@ from unittest.mock import Mock
 from pytest import MonkeyPatch
 
 from homeworks.space_battle.commands import Command, LogCommand, RetryIfExceptionCommand
-from homeworks.space_battle.exceptions import (
-    RetryOnceThenLogExceptionHandler,
-)
+from homeworks.space_battle.handlers import RetryOnceThenLogExceptionHandler
 from homeworks.space_battle.interfaces import CommandInterface
 
 
